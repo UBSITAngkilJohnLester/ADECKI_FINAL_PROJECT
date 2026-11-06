@@ -1,11 +1,10 @@
-<?
+<?php
 	require_once "dbconn.php";
 
 	if ($pdo) {
-		echo "ok";
+		echo "AAAAAAAAAAAAAAA";
 	}
-
-
+	
 ?>
 
 <!DOCTYPE html>
