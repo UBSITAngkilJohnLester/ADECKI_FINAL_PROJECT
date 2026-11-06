@@ -20,6 +20,7 @@
 		<nav>
 			<a href="index.php">Home</a>
 			<a href="games.php">Games</a>
+			<a href="developer.php">Developers</a>
 			<a href="about.php">About Us</a>
 			<a href="login\login.php">LogIn</a>
 		</nav>
