@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3307
--- Generation Time: Oct 09, 2026 at 06:30 AM
+-- Host: 127.0.0.1
+-- Generation Time: Nov 13, 2026 at 12:35 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,9 +30,17 @@ SET time_zone = "+00:00";
 CREATE TABLE `developer` (
   `DeveloperID` int(11) NOT NULL,
   `DeveloperName` varchar(50) NOT NULL,
+  `Password` char(60) NOT NULL,
   `DeveloperStudio` varchar(30) NOT NULL,
   `GameEngine` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `developer`
+--
+
+INSERT INTO `developer` (`DeveloperID`, `DeveloperName`, `Password`, `DeveloperStudio`, `GameEngine`) VALUES
+(5, 'Gabe Newell', '$2y$10$jUq3VsRhZTt8dsQXh6NWE.3dvlyCAyo44nFFbVMGi6TTZ4GOGfc/y', 'Valve', 'Source Engine');
 
 -- --------------------------------------------------------
 
@@ -74,11 +82,19 @@ CREATE TABLE `review` (
 CREATE TABLE `tester` (
   `TesterID` int(11) NOT NULL,
   `TesterUsername` char(100) NOT NULL,
+  `Password` char(60) NOT NULL,
   `Gender` char(1) NOT NULL,
-  `Playtime` time NOT NULL,
+  `Playtime` int(11) NOT NULL,
   `Age` tinyint(3) NOT NULL,
   `GenrePreferences` char(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tester`
+--
+
+INSERT INTO `tester` (`TesterID`, `TesterUsername`, `Password`, `Gender`, `Playtime`, `Age`, `GenrePreferences`) VALUES
+(1, 'Lester', '$2y$10$3nBeiUQ/AtOUKkxXrvSCH..MLmcRW7koXv/GQ4dAgRmYqtgSmccFC', 'M', 88, 21, 'RPG');
 
 --
 -- Indexes for dumped tables
@@ -119,7 +135,7 @@ ALTER TABLE `tester`
 -- AUTO_INCREMENT for table `developer`
 --
 ALTER TABLE `developer`
-  MODIFY `DeveloperID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `DeveloperID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `game`
@@ -137,7 +153,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `tester`
 --
 ALTER TABLE `tester`
-  MODIFY `TesterID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `TesterID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
