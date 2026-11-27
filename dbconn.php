@@ -4,7 +4,7 @@
 	$pass = "";
 	$db = "adecki";
 	$charset = "utf8mb4";
-	$port = 3307; //comment this line and remove from $dsn if personal computer
+	$port = 3308; //comment this line and remove from $dsn if personal computer
 
 	$dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
 	$attributes = [
