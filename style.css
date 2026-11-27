@@ -1,0 +1,112 @@
+* { 
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url("bg.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: "Jersey 10", monospace;
+    font-size: 22px;
+    color: #2f3b1c;
+}
+
+.card {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px 32px;
+    background: #fffdf0;
+    border: 4px solid #2f3b1c;
+    box-shadow: 8px 8px 0 rgba(47, 59, 28, 0.35);
+}
+
+h1 {
+    margin: 0 0 24px;
+    font-family: "Silkscreen", monospace;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    color: #558022;
+    text-shadow: 3px 3px 0 #d6f5a3;
+}
+
+.field { margin-bottom: 14px; }
+
+/* register page: label on the left, box on the right */
+.row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px 12px;
+    font-family: inherit;
+    font-size: 22px;
+    color: inherit;
+    background: #fff;
+    border: 3px solid #2f3b1c;
+    border-radius: 0;
+}
+
+input:focus, select:focus, button:focus-visible, a:focus-visible {
+    outline: 3px solid #e8862e;
+    outline-offset: 2px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 28px;
+}
+
+a { color: #1f6f7a; }
+
+button {
+    padding: 6px 24px;
+    font-family: inherit;
+    font-size: 24px;
+    color: #2f3b1c;
+    background: #9be359;
+    border: 3px solid #2f3b1c;
+    box-shadow: 4px 4px 0 #558022;
+    cursor: pointer;
+}
+
+button:hover { background: #cdf887; }
+
+button:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+
+.message {
+    margin: 0 0 16px;
+    padding: 8px 12px;
+    text-align: center;
+    border: 3px solid;
+}
+
+.error   { background: #ffe3de; color: #9c2516; }
+.success { background: #e6f9cc; color: #3d6215; }
+
+fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+fieldset[hidden] { display: none; }
+
+@media (max-width: 420px) {
+    .card { padding: 24px 18px; }
+    h1 { font-size: 26px; }
+    .row { grid-template-columns: 1fr; gap: 4px; }
+}
