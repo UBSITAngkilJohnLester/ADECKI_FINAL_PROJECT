@@ -16,7 +16,7 @@
 	try {
 		$pdo = new PDO($dsn, $user, $pass, $attributes);		
 	} catch (PDOException $e) {
-		die("Connection Failed..." . $e.getmessage());
+		die("Connection Failed..." . $e->getmessage());
 	}
 
 ?>
