@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// messages are shown once, then cleared
 $error   = $_SESSION['login_error'] ?? "";
 $success = $_SESSION['register_success'] ?? "";
 unset($_SESSION['login_error'], $_SESSION['register_success']);

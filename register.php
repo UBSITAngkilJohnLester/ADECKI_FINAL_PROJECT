@@ -100,7 +100,7 @@ if (isset($_POST['register_btn'])) {
             <div class="row">
                 <label for="role">Role</label>
                 <select name="role" id="role" onchange="toggleFields()" required>
-                    <option value="">-- Select --</option>
+                    <option value="" selected disabled>-- Select --</option>
                     <option value="Developer" <?= $role == "Developer" ? "selected" : "" ?>>Developer</option>
                     <option value="Tester" <?= $role == "Tester" ? "selected" : "" ?>>Tester</option>
                 </select>
