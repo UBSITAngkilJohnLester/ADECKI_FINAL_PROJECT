@@ -10,8 +10,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 </head>
+		<tr>
+			<a href="logout.php">Logout</a>
+		</tr>
+		<br>
 	<body>
-		<hr>
 			<hr>
 			=========================GAME==============================
 
@@ -42,7 +45,7 @@
 						<td><?php echo $row['DateReleased']; ?></td>
 						<td><?php echo $row['Platform']; ?></td>
 						<td>
-							<a href="edit_game/index.php"> Edit </a>
+							<a href="insert_review.php?gameid=<?= (int)$row['GameID'] ?>">Review</a>
 						</td>
 					</tr>
 				<?php

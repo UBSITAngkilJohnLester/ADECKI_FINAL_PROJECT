@@ -1,5 +1,5 @@
 <?php
-require 'dbconn.php';
+require_once '../dbconn.php';
 
 $message = "";
 

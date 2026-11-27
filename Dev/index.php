@@ -10,11 +10,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 </head>
+		<tr>
+			<a href="insert_game.php">Add Game</a>
+			<a href="logout.php">Logout</a>
+		</tr>
+		<br>
 	<body>
+			<hr>
 			=========================GAME==============================
 
 
-			<hr>
+			
 
 			<table border="3">
 		<tr>
@@ -40,7 +46,7 @@
 						<td><?php echo $row['DateReleased']; ?></td>
 						<td><?php echo $row['Platform']; ?></td>
 						<td>
-							<a href="edit_game/index.php"> Edit </a>
+							<a href="update_game.php"> Edit </a>
 						</td>
 					</tr>
 				<?php
@@ -51,7 +57,7 @@
 
 			<hr>
 			=========================REVIEW==============================
-			<hr>
+			
 
 				<table border="3">
 			<tr>
@@ -59,7 +65,6 @@
 				<th>Feedback</th>
 				<th>Playtime</th>
 				<th>Bugreport</th>
-				<th>Action</th>
 			</tr>
 
 			<?php
@@ -76,9 +81,6 @@
 							<td><?php echo $row['feedback']; ?></td>
 							<td><?php echo $row['playtime']; ?></td>
 							<td><?php echo $row['Bugreport']; ?></td>
-							<td>
-								<a href="edit_review/index.php"> Edit </a>
-							</td>
 						</tr>
 					<?php
 						endforeach;

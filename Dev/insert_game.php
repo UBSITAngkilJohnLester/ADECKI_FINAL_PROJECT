@@ -1,7 +1,7 @@
 <?php
 	//session_start();
 	date_default_timezone_set('Asia/Manila');
-	include "dbconn.php";
+	require_once "../dbconn.php";
 	
 	//if (!isset($_SESSION['DeveloperID'])) {
 	//	header("Location: login.php");
@@ -70,7 +70,9 @@
 				</td>
 			</tr>
 			<tr>
-				<td><button name="post">Post</button></td>
+				<td><button name="post">Post</button> |
+					<a href="index.php">Back</a>
+				</td>
 			</tr>
 		</form>
 	</table>
