@@ -42,7 +42,7 @@
 						<td><?php echo $row['DateReleased']; ?></td>
 						<td><?php echo $row['Platform']; ?></td>
 						<td>
-							<a href="edit_game/index.php"> Edit </a>
+							<a href="edit_game/index.php"> Review </a>
 						</td>
 					</tr>
 				<?php
