@@ -5,7 +5,6 @@ include "dbconn.php";
 $error = "";
 $role  = $_POST['role'] ?? "";
 
-// keeps what the user typed if there is an error
 function old($key) {
     return htmlspecialchars($_POST[$key] ?? "");
 }
@@ -54,7 +53,7 @@ if (isset($_POST['register_btn'])) {
         } else if ($age === false) {
             $error = "Age must be a whole number from 1 to 120.";
         } else {
-            // the column is a TIME type, so 3 hours is saved as 3:00:00
+      
             $playtime = $hours . ":00:00";
 
             $stmt = $pdo->prepare("SELECT TesterID FROM tester WHERE TesterUsername = ?");
@@ -107,7 +106,6 @@ if (isset($_POST['register_btn'])) {
                 </select>
             </div>
 
-            <!-- Developer fields -->
             <fieldset id="devFields" hidden disabled>
                 <div class="row">
                     <label for="dev_name">Name</label>
@@ -121,9 +119,12 @@ if (isset($_POST['register_btn'])) {
                     <label for="dev_engine">Game Engine</label>
                     <input type="text" id="dev_engine" name="dev_engine" value="<?= old('dev_engine') ?>" placeholder="e.g. Godot" maxlength="20" required>
                 </div>
+                <div class="row">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
             </fieldset>
 
-            <!-- Tester fields -->
             <fieldset id="testerFields" hidden disabled>
                 <div class="row">
                     <label for="tester_username">Username</label>
@@ -149,13 +150,13 @@ if (isset($_POST['register_btn'])) {
                     <label for="genre">Genre</label>
                     <input type="text" id="genre" name="genre" value="<?= old('genre') ?>" placeholder="e.g. RPG" maxlength="20" required>
                 </div>
+                <div class="row">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
             </fieldset>
 
-            <!-- Password (both roles) -->
-            <div class="row">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password" required>
-            </div>
+            
 
             <div class="actions">
                 <a href="index.php">Back</a>
@@ -165,8 +166,7 @@ if (isset($_POST['register_btn'])) {
     </main>
 
     <script>
-        // show only the fields for the chosen role
-        // (disabled fields are not required and not submitted)
+ 
         function toggleFields() {
             var role = document.getElementById("role").value;
             var groups = { devFields: "Developer", testerFields: "Tester" };

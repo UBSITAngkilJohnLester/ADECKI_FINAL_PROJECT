@@ -40,7 +40,6 @@ h1 {
 
 .field { margin-bottom: 14px; }
 
-/* register page: label on the left, box on the right */
 .row {
     display: grid;
     grid-template-columns: 120px 1fr;

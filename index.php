@@ -31,7 +31,7 @@ unset($_SESSION['login_error'], $_SESSION['register_success']);
         <form method="post" action="login.php">
             <div class="field">
                 <select name="role" aria-label="Role" required>
-                    <option value="">-- Select role --</option>
+                    <option value="" selected disabled>-- Select role --</option>
                     <option value="Developer">Developer</option>
                     <option value="Tester">Tester</option>
                 </select>
