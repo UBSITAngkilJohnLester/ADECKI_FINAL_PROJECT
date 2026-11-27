@@ -1,28 +1,24 @@
 <?php
-	//session_start();
-	include "../dbconn.php";
+	session_start();
+	require_once "../dbconn.php";
 
 	// Game ID comes from the link (GET) or the hidden field after posting (POST)
 	$GameID = (int)($_POST['gameid'] ?? $_GET['gameid'] ?? 0);
 
-	// Look up the game so we can show its title
-	$stmt = mysqli_prepare($conn, "SELECT GameTitle FROM game WHERE GameID = ?");
-	mysqli_stmt_bind_param($stmt, "i", $GameID);
-	mysqli_stmt_execute($stmt);
-	$game = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt));
+	$gameStmt = $pdo->prepare("SELECT GameTitle FROM game WHERE GameID = ?");
+	$gameStmt->execute([$GameID]);
+	$game = $gameStmt->fetch();
 
 	if (!$game) {
-		header("Location: Tester_games.php");  // no valid game chosen
+		header("Location: index.php");  // no valid game chosen
 		exit;
 	}
 
 	if (isset($_POST['post'])) {
 		$Rating    = (int)$_POST['rating'];
 		$Feedback  = $_POST['feedback'];
-		$Playtime  = (int)$_POST['playtime'];
 		$Bugreport = $_POST['bugreport'];
-		$TesterID  = 1; // later: $_SESSION['TesterID']
-		$TesterID = 6; //temporary until login is done
+		$TesterID  = $_SESSION['TesterID'];
 
 		$Playtime = sprintf('%02d:%02d:%02d',
 			(int)$_POST['playtime_hours'],
@@ -30,12 +26,11 @@
 			(int)$_POST['playtime_seconds']
 	);
 
-		$stmt = mysqli_prepare($conn,
+		$reviewStmt = $pdo->prepare(
 			"INSERT INTO review (rating, feedback, playtime, GameID, TesterID, Bugreport) VALUES (?, ?, ?, ?, ?, ?)");
-		mysqli_stmt_bind_param($stmt, "isiiis", $Rating, $Feedback, $Playtime, $GameID, $TesterID, $Bugreport);
-		mysqli_stmt_execute($stmt);
+		$reviewStmt->execute([$Rating, $Feedback, $Playtime, $GameID, $TesterID, $Bugreport]);
 
-		header("Location: Tester_games.php");
+		header("Location: index.php");
 		exit;
 	}
 ?>
@@ -84,7 +79,9 @@
 				<td><textarea name="bugreport" rows="3" value="Leave blank if none"></textarea></td>
 			</tr>
 			<tr>
-				<td><button name="post">Post</button></td>
+				<td><button name="post">Post</button> |
+					<a href="index.php">Back</a>
+				</td>
 			</tr>
 		</table>
 	</form>

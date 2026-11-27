@@ -2,6 +2,25 @@
 	session_start();
 	date_default_timezone_set('Asia/Manila');
 	require_once "../dbconn.php";
+<<<<<<< HEAD:Dev/insertr_game.php
+=======
+	
+	//if (!isset($_SESSION['DeveloperID'])) {
+	//	header("Location: login.php");
+	//	exit;
+	//}
+
+
+	if(isset($_POST['post'])) {
+		$Gametitle = $_POST['gametitle'];
+		$Genre = $_POST['genre'];
+		$DateReleased = date('Y-m-d');
+		$Platform = $_POST['platform'];
+		$DevID = $_SESSION['DeveloperID'] = 2; // set by the login file
+
+		$insert = "INSERT INTO game (GameTitle, Genre, DateReleased, Platform, DeveloperID) VALUES ('$Gametitle', '$Genre', '$DateReleased', '$Platform', '$DevID')";
+		mysqli_query($conn, $insert);
+>>>>>>> a68b066b552a10232d1cdaaa028850d6fec97861:Dev/insert_game.php
 
 	if (($_SESSION['ROLE'] ?? '') !== 'Developer' || !isset($_SESSION['DEVELOPER_ID'])) {
 		header("Location: ../index.php");
@@ -68,6 +87,7 @@
 						<option value="<?= e($g) ?>"><?= e($g) ?></option>
 					<?php endforeach; ?>
 				</select>
+<<<<<<< HEAD:Dev/insertr_game.php
 			</div>
 			<div class="row">
 				<label for="platform">Platform</label>
@@ -86,6 +106,28 @@
 				<button type="submit" name="post">Post</button>
 				<a href="index.php" class="btn alt">Cancel</a>
 			</div>
+=======
+				</td>
+			</tr>
+			<tr>
+				<td>Platform to Play on</td>
+				<td>
+					<select name="platform" required>
+						<option selected disabled>Select a Platform</option>
+						<option value="PC">PC</option>
+						<option value="Xbox">Xbox</option>
+						<option value="PlayStation">PlayStation</option>
+						<option value="Handheld Game Console">Handheld Game Console</option>
+						<option value="Mobile">Mobile</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><button name="post">Post</button> |
+					<a href="index.php">Back</a>
+				</td>
+			</tr>
+>>>>>>> a68b066b552a10232d1cdaaa028850d6fec97861:Dev/insert_game.php
 		</form>
 	</main>
 </body>

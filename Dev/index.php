@@ -28,17 +28,32 @@
 	<link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="dev_style.css">
 </head>
+<<<<<<< HEAD
 <body class="dashboard">
+=======
+		<tr>
+			<a href="insert_game.php">Add Game</a>
+			<a href="logout.php">Logout</a>
+		</tr>
+		<br>
+	<body>
+			<hr>
+			=========================GAME==============================
+>>>>>>> a68b066b552a10232d1cdaaa028850d6fec97861
 
 	<nav class="navbar">
 		<div class="brand">INDIE HAUS</div>
 		<a class="nav-logout" href="logout.php">Logout</a>
 	</nav>
 
+<<<<<<< HEAD
 	<header class="welcome">
 		<h1>Welcome, <?= e(strtoupper($role)) ?></h1>
 		<p class="who"><?= e($username) ?></p>
 	</header>
+=======
+			
+>>>>>>> a68b066b552a10232d1cdaaa028850d6fec97861
 
 	<main class="panel">
 		<section class="section">
@@ -52,8 +67,18 @@
 			<table class="data">
 				<thead>
 					<tr>
+<<<<<<< HEAD
 						<th>Game Title</th><th>Genre</th><th>Date Released</th><th>Platform</th>
 						<?php if ($isDeveloper): ?><th>Action</th><?php endif; ?>
+=======
+						<td><?php echo $row['GameTitle']; ?></td>
+						<td><?php echo $row['Genre']; ?></td>
+						<td><?php echo $row['DateReleased']; ?></td>
+						<td><?php echo $row['Platform']; ?></td>
+						<td>
+							<a href="update_game.php"> Edit </a>
+						</td>
+>>>>>>> a68b066b552a10232d1cdaaa028850d6fec97861
 					</tr>
 				</thead>
 				<tbody>
@@ -77,6 +102,7 @@
 			</div>
 		</section>
 
+<<<<<<< HEAD
 		<section class="section">
 			<div class="section-head"><h2>Reviews</h2></div>
 			<div class="table-wrap">
@@ -104,3 +130,41 @@
 	</main>
 </body>
 </html>
+=======
+
+			<hr>
+			=========================REVIEW==============================
+			
+
+				<table border="3">
+			<tr>
+				<th>Rating</th>
+				<th>Feedback</th>
+				<th>Playtime</th>
+				<th>Bugreport</th>
+			</tr>
+
+			<?php
+			$fetch = "SELECT * FROM review";
+			$prep = $pdo->prepare($fetch);
+			$prep->execute();
+			$rows = $prep->fetchAll();
+
+			foreach ($rows as $row):
+			?>
+					
+						<tr>
+							<td><?php echo $row['rating']; ?></td>
+							<td><?php echo $row['feedback']; ?></td>
+							<td><?php echo $row['playtime']; ?></td>
+							<td><?php echo $row['Bugreport']; ?></td>
+						</tr>
+					<?php
+						endforeach;
+					?>	
+				</table>
+
+			<hr>
+	</body>
+</html>
+>>>>>>> a68b066b552a10232d1cdaaa028850d6fec97861
