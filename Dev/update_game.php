@@ -1,5 +1,9 @@
 <?php
-require 'dbconn.php';
+<<<<<<< HEAD
+require '../dbconn.php';
+=======
+require_once '../dbconn.php';
+>>>>>>> a68b066b552a10232d1cdaaa028850d6fec97861
 
 $message = "";
 
